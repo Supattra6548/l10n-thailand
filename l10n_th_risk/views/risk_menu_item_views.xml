@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		# Top level menu: no paret
+		<menuitem id="main_risk_menu" name="Risk" groups="risk.group_risk_user" />
+		<record model="ir.ui.menu" id="main_risk_menu">
+			<field name="app3digi">rsk</field>
+		</record>
+
+		<menuitem id="risk_sub_menu" name="Sub1 Menu" parent="main_risk_menu" sequence="1" />
+		<menuitem id="risk_name1_menu" name="name1" parent="risk_sub_menu" action="risk_action" sequence="1" />
+		
+		# Configuration (Admin Only)
+		<menuitem id="risk_conf_menu" name="Configuration" parent="main_risk_menu" sequence="99" groups="risk.group_risk_admin"/>
+			# Menu Configuration > Access Rights
+		<menuitem name="Access Rights" id="menu_risk_group_roles" parent="risk_conf_menu" sequence="10" action="action_risk_group" groups="risk.group_risk_admin" />
+			# Menu Configuration > Logging
+		<menuitem name="Logging" id="menu_risk_logging" parent="risk_conf_menu" sequence="20" action="action_risk_logging" groups="risk.group_risk_admin" />
+			# Menu Configuration > Scheduled Actions
+		<menuitem name="Scheduled Actions" id="menu_risk_scheduled_actions" parent="risk_conf_menu" sequence="30" action="action_risk_scheduled_actions" groups="risk.group_risk_admin" />
+			# Menu Configuration > Parameters
+		<menuitem name="Parameters" id="menu_risk_parameters" parent="risk_conf_menu" sequence="40" action="action_risk_parameters" groups="risk.group_risk_admin" />
+	</data>
+</openerp>

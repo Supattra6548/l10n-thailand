@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		# Form View
+		<record model="ir.ui.view" id="risk_control_owner_form_view">
+			<field name="name">risk.control.owner.form</field>
+			<field name="model">risk.control.owner</field>
+			<field name="arch" type="xml">
+				<form string="Control owner">
+					<sheet>
+						<group>
+							<group>
+								<field name="control_owner_ids" widget='radio' options="{'horizontal': false}"/>
+								<field name="division_ids" />
+								<field name="employee_ids" />
+								<field name="risk_ids" invisible="1" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		# Tree View
+		<record model="ir.ui.view" id="risk_control_owner_tree_view">
+			<field name="name">risk.control.owner.tree</field>
+			<field name="model">risk.control.owner</field>
+			<field name="arch" type="xml">
+				<tree string="Control ontrol_owner ">
+					<field name="control_owner_ids" invisible="1"/>
+					<field name="control_owner_display" />
+				</tree>
+			</field>
+		</record>
+
+		# Window action
+		<record model="ir.actions.act_window" id="risk_control_owner_action">
+			<field name="name">Control Owner</field>
+			<field name="res_model">risk.control.owner</field>
+			<field name="domain">[]</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="context" eval="{}" />
+		</record>
+	</data>
+</openerp>

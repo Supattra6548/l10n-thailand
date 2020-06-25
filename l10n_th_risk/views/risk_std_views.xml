@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		# Access Rights
+		<record model="ir.ui.view" id="risk_group_tree_view">
+			<field name="name">risk_group_tree</field>
+			<field name="model">res.groups</field>
+			<field name="arch" type="xml">
+				<tree string="Access Rights" create='false'>
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="action_risk_group">
+			<field name="name">Access Rights</field>
+			<field name="res_model">res.groups</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('category_id.description','=','risk')]
+			</field>
+			<field name="view_id" ref="risk_group_tree_view" />
+			<field name="context" eval="{'mode_view': 't'}" />
+		</record>
+
+		# Logging
+		<record model="ir.ui.view" id="risk_logging_tree_view">
+			<field name="name">risk_logging_tree</field>
+			<field name="model">mail.message</field>
+			<field name="arch" type="xml">
+				<tree string="Logging" create='false'>
+					<field name="date" />
+					<field name="author_id" />
+					<field name="model" />
+					<field name="res_id" />
+					<field name="record_name" />
+					<field name="body" widget="html" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="action_risk_logging">
+			<field name="name">Logging</field>
+			<field name="res_model">mail.message</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree</field>
+			<field name="domain">[('model','ilike','risk')]</field>
+			<field name="view_id" ref="risk_logging_tree_view" />
+		</record>
+
+		# Scheduled Actions
+		<record model="ir.ui.view" id="risk_scheduled_actions_tree_view">
+			<field name="name">risk_scheduled_actions_tree</field>
+			<field name="model">ir.cron</field>
+			<field name="arch" type="xml">
+				<tree string="Scheduled Actions" colors="grey:(not active)" create='false'>
+					<field name="priority" string="Sequence" />
+					<field name="name" />
+					<field name="nextcall" />
+					<field name="interval_number" />
+					<field name="interval_type" />
+					<field name="numbercall" />
+					<field name="user_id" invisible="1" />
+					<field name="active" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="action_risk_scheduled_actions">
+			<field name="name">Scheduled Actions</field>
+			<field name="res_model">ir.cron</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('name','ilike','risk - ')]</field>
+			<field name="view_id" ref="risk_scheduled_actions_tree_view" />
+		</record>
+		
+		# Parameters
+		<record model="ir.ui.view" id="risk_parameter_tree_view">
+			<field name="name">risk_parameter_tree</field>
+			<field name="model">ir.config_parameter</field>
+			<field name="arch" type="xml">
+				<tree string="Parameters" editable="bottom" create='false' delete='false'>
+					<field name="key" />
+					<field name="value" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="action_risk_parameters">
+			<field name="name">Parameters</field>
+			<field name="res_model">ir.config_parameter</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('key','ilike','risk')]</field>
+			<field name="view_id" ref="risk_parameter_tree_view" />
+		</record>
+	</data>
+</openerp>

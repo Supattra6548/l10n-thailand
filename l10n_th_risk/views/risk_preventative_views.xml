@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		# Form View
+		<record model="ir.ui.view" id="risk_preventative_form_view">
+			<field name="name">risk.preventative.form</field>
+			<field name="model">risk.preventative</field>
+			<field name="arch" type="xml">
+				<form string="Existing Controls (Preventative)  ">
+					<sheet>
+						<group>
+							<group>
+								<field name="preventative_id" invisible="1"/>
+								<field name="preventative_name" />
+								<field name="causes_ids" widget="many2many_tags"/>
+								<field name="control_owner_ids" />
+								<field name="risk_ids" invisible="1" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		# Search View
+		<record model="ir.ui.view" id="risk_preventative_search_view">
+			<field name="name">risk.preventative.seach</field>
+			<field name="model">risk.preventative</field>
+			<field name="arch" type="xml">
+				<search string="Existing Controls (Preventative)  ">
+					<field name="preventative_name" />
+				</search>
+			</field>
+		</record>
+
+		# Tree View
+		<record model="ir.ui.view" id="risk_preventative_tree_view">
+			<field name="name">risk.preventative.tree</field>
+			<field name="model">risk.preventative</field>
+			<field name="arch" type="xml">
+				<tree string="Existing Controls (Preventative)  ">
+					<field name="preventative_id" />
+					<field name="preventative_name" />
+					<field name="causes_ids" />
+				</tree>
+			</field>
+		</record>
+
+		# Window action
+		<record model="ir.actions.act_window" id="risk_preventative_action">
+			<field name="name">Asst. Owner</field>
+			<field name="res_model">risk.preventative</field>
+			<field name="domain">[]</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="context" eval="{}" />
+		</record>
+	</data>
+</openerp>

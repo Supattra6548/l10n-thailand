@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		# Form View
+		<record model="ir.ui.view" id="risk_assist_owner_form_view">
+			<field name="name">risk.assist.owner.form</field>
+			<field name="model">risk.assist.owner</field>
+			<field name="arch" type="xml">
+				<form string="Asst. Owner" style="height:400px">
+					<sheet>
+						<group>
+							<group>
+								<field name="asst_owner_ids" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		# Search View
+		<record model="ir.ui.view" id="risk_assist_owner_search_view">
+			<field name="name">risk.assist.owner.seach</field>
+			<field name="model">risk.assist.owner</field>
+			<field name="arch" type="xml">
+				<search string="Asst. Owner">
+					<field name="asst_owner_ids" />
+				</search>
+			</field>
+		</record>
+
+		# Tree View
+		<record model="ir.ui.view" id="risk_assist_owner_tree_view">
+			<field name="name">risk.assist.owner.tree</field>
+			<field name="model">risk.assist.owner</field>
+			<field name="arch" type="xml">
+				<tree string="Asst. Owner">
+					<field name="asst_owner_ids" />
+				</tree>
+			</field>
+		</record>
+
+		# Window action
+		<record model="ir.actions.act_window" id="risk_assist_owner_action">
+			<field name="name">Asst. Owner</field>
+			<field name="res_model">risk.assist.owner</field>
+			<field name="domain">[]</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="context" eval="{}" />
+		</record>
+	</data>
+</openerp>

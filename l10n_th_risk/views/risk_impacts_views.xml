@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		# Form View
+		<record model="ir.ui.view" id="risk_impacts_form_view">
+			<field name="name">risk.impacts.form</field>
+			<field name="model">risk.impacts</field>
+			<field name="arch" type="xml">
+				<form string="Impacts">
+					<sheet>
+						<group>
+							<group>
+								<field name="impacts_id" invisible="1"/>
+								<field name="impacts_name" />
+								<field name="risk_ids" invisible="1" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		# Search View
+		<record model="ir.ui.view" id="risk_impacts_search_view">
+			<field name="name">risk.impacts.seach</field>
+			<field name="model">risk.impacts</field>
+			<field name="arch" type="xml">
+				<search string="Impacts">
+					<field name="impacts_name" />
+				</search>
+			</field>
+		</record>
+
+		# Tree View
+		<record model="ir.ui.view" id="risk_impacts_tree_view">
+			<field name="name">risk.impacts.tree</field>
+			<field name="model">risk.impacts</field>
+			<field name="arch" type="xml">
+				<tree string="Impacts">
+					<field name="impacts_id" />
+					<field name="impacts_name" />
+				</tree>
+			</field>
+		</record>
+
+		# Window action
+		<record model="ir.actions.act_window" id="risk_impacts_action">
+			<field name="name">Asst. Owner</field>
+			<field name="res_model">risk.impacts</field>
+			<field name="domain">[]</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="context" eval="{}" />
+		</record>
+	</data>
+</openerp>

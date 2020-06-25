@@ -1,0 +1,20 @@
+<openerp>
+    <data noupdate='1'>
+        <record id="group_risk_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="risk.module_category_risk" />
+        </record>
+
+        <record id="group_risk_user_readonlyall" model="res.groups">
+            <field name="name">User ReadOnly All</field>
+            <field name="category_id" ref="risk.module_category_risk" />
+        </record>
+
+        <record id="group_risk_admin" model="res.groups">
+            <field name="name">Admin</field>
+            <field name="category_id" ref="risk.module_category_risk" />
+            <field name="implied_ids" eval="[(4, ref('risk.group_risk_user'))]" />
+            <field name="users" eval="[(4, ref('base.user_root'))] "/>
+        </record>
+    </data>
+</openerp>
